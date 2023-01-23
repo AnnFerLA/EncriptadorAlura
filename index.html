@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+    <head>
+
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width">
+        <title>Reto Encriptador</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style-home.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    </head> 
+
+    <body>
+        <main>
+            <img src="imagenes/Logo-1.png" alt="logo" id="logo">
+
+            <section class="entradaT">
+                <textarea placeholder="Ingrese el texto aqui" id="texto"></textarea>
+                <div class="botones">
+                    <div class="aviso">
+                        <h2>"Solo letras minusculas"</h2>
+                    </div>
+                    <div class="botonera">
+                        <button class="encriptar" >Encriptar</button>
+                        <button class="desencriptar">Desencriptar</button>
+                    </div>
+                </div>
+            </section>
+            <section class="salida">
+                <div class="vacio" id="sinTexto" style="display: flex;">
+                    <h3>No hay nuevas entradas</h3>
+                    <img src="imagenes/Muñeco.png" alt="Texto">
+                    <P>Ingrese el texto que desee encriptar o desencriptar</P>
+                </div>
+                <div class="lleno" id="conTexto" style=" display: none;">
+                    <p class="out" id="textoEncriptado"></p>
+                    <button id="copiar">Copiar</button>
+                </div>
+            </section>
+        </main>
+    </body>
+    <script src="script.js"></script>
+<html>
