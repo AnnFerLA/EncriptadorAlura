@@ -19,11 +19,11 @@
                 <textarea placeholder="Ingrese el texto aqui" id="texto"></textarea>
                 <div class="botones">
                     <div class="aviso">
-                        <h2>"Solo letras minusculas"</h2>
+                        <h2>&#9888;"Solo letras minusculas"</h2>
                     </div>
                     <div class="botonera">
-                        <button class="encriptar" >Encriptar</button>
-                        <button class="desencriptar">Desencriptar</button>
+                        <button class="encriptar" onclick="encriptamiento()">Encriptar</button>
+                        <button class="desencriptar" onclick="decrypt()">Desencriptar</button>
                     </div>
                 </div>
             </section>
@@ -35,10 +35,46 @@
                 </div>
                 <div class="lleno" id="conTexto" style=" display: none;">
                     <p class="out" id="textoEncriptado"></p>
-                    <button id="copiar">Copiar</button>
+                    <button id="copiar" onclick="copiar()">Copiar</button>
                 </div>
             </section>
         </main>
-    </body>
-    <script src="script.js"></script>
+    <script>
+        var mapVowels = {
+            a:"sf",
+            e:"pt",
+            i:"qr",
+        };
+        var mapVowelsTurn = {
+            sf:"a",
+            pt:"e",
+            qr:"i",
+        };
+        const paragraph = document.getElementById('textoEncriptado');
+        function encriptamiento() {
+            document.getElementById("sinTexto").style.display = "none";
+            document.getElementById("conTexto").style.display = "flex";
+            var input = document.getElementById('texto').value;
+            replaced = input.replace(/a|e|i/gi, function(match){
+                return mapVowels[match]
+            });
+            paragraph.textContent = replaced;
+        }
+        function decrypt() {
+        decrypted = replaced.replace(/sf|pt|qr/gi, function(reverse){
+                return mapVowelsTurn[reverse]
+            });
+            paragraph.textContent = decrypted;
+        }
+        function copiar(){
+            var copiado = document.getElementById('textoEncriptado').textContent;
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copiado);
+
+            // Alert the copied text
+            alert("Copied the text: " + copiado);
+        }
+    </script>
+    </body>  
 <html>
